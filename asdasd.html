@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 3px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <title>Create Table</title>
+
+    <input type="button" value="Create Table" id="bttn">
+
+    <div id="myDiv"></div>
+    </center>
+</body>
+
+<script>
+   
+
+    function cTable(){
+        var column= parseInt(prompt("Enter column"));
+        var row= parseInt(prompt("Enter row"));
+        
+        if(isNaN(row) || isNaN(column)){
+            alert("you should enter integer number!");
+
+            return;
+        }
+
+        var str='Cell';
+        var count=1;
+        var myTable=document.createElement("table");
+
+        for(var i=1;i<=row;i++){
+            var myTr=document.createElement("tr");
+
+            for(var j=1;j<=column;j++){
+                var myTd=document.createElement("td");
+                var node=document.createTextNode(str+count);
+                
+                myTd.appendChild(node);
+                count++;
+                myTr.appendChild(myTd);
+               
+
+
+              
+            }
+
+            myTable.appendChild(myTr);
+        }
+
+        document.getElementById("myDiv").appendChild(myTable);
+
+        
+    }
+    document.getElementById("bttn").addEventListener("click",cTable);
+</script>
+</html>
